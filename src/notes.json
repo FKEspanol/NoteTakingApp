@@ -37,10 +37,16 @@
       "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
     },
     {
-      "id": "4770",
+      "id": "15df",
+      "category": "random",
+      "title": "Powershell for Begginers",
+      "noteBody": "Learning powershell for begginers"
+    },
+    {
+      "id": "d682",
       "category": "random",
       "title": "Basics of Bash Scripting",
-      "noteBody": "This is the basics of Bash scripting in Linux environment"
+      "noteBody": "This is the introduction into bash scripting in Linux environment"
     }
   ]
 }
