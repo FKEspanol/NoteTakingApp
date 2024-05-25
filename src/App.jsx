@@ -33,6 +33,21 @@ function App() {
         return;
     };
 
+    const submitEditNoteForm = async (updatedNote) => {
+        try {
+            await fetch(`/api/notes/${updatedNote.id}`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify(updatedNote),
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<MainLayout />}>
@@ -57,7 +72,13 @@ function App() {
                         <AddNotePage submitAddNoteForm={submitAddNoteForm} />
                     }
                 />
-                <Route path="/edit-note" element={<EditNotePage />} />
+                <Route
+                    path="/edit-note/:id"
+                    element={
+                        <EditNotePage submitEditNoteForm={submitEditNoteForm} />
+                    }
+                    loader={noteLoader}
+                />
                 <Route path="*" element={<NotFoundPage />} />
             </Route>
         )

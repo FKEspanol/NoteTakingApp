@@ -34,9 +34,12 @@ const NotePage = () => {
                     </article>
 
                     <div className="flex gap-x-2 mt-5">
-                        <button className="px-3 py-3 rounded bg-warning text-white">
+                        <Link
+                            to={`/edit-note/${id}`}
+                            className="px-3 py-3 rounded bg-warning text-white"
+                        >
                             Edit Note
-                        </button>
+                        </Link>
                         <button
                             onClick={deleteNote}
                             className="px-3 py-3 rounded bg-danger text-white"
