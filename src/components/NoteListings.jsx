@@ -8,7 +8,7 @@ const NoteListings = ({ isHome = false }) => {
             try {
                 const res = await fetch(`/api/notes`);
                 const data = await res.json();
-                setNotes(data);
+                setNotes(data.reverse());
             } catch (error) {
                 console.log("Error on fetch notes in NoteListings.jsx ", error);
             }

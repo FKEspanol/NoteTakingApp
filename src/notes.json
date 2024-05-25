@@ -7,12 +7,6 @@
       "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
     },
     {
-      "id": "2",
-      "category": "random",
-      "title": "Personality Test",
-      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-    },
-    {
       "id": "3",
       "category": "coding",
       "title": "Php Basics",
@@ -47,6 +41,12 @@
       "category": "random",
       "title": "Express JS with MongoDB",
       "noteBody": "This is a lessons for express js with mongodb"
+    },
+    {
+      "id": "fc14",
+      "category": "random",
+      "title": "Python Basics to Intermediate",
+      "noteBody": "Basics of python programming language"
     }
   ]
 }
