@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 const AddNotePage = ({ submitAddNoteForm }) => {
     const [category, setCategory] = useState("random");
     const [title, setTitle] = useState("");
@@ -15,7 +16,7 @@ const AddNotePage = ({ submitAddNoteForm }) => {
         };
 
         submitAddNoteForm(newNote);
-
+        toast.success("Successfully added a note");
         navigate("/notes");
     };
 

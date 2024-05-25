@@ -13,12 +13,6 @@
       "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
     },
     {
-      "id": "4",
-      "category": "random",
-      "title": "My accounts",
-      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-    },
-    {
       "id": "6",
       "category": "random",
       "title": "Debian tips",
@@ -45,8 +39,14 @@
     {
       "id": "fc14",
       "category": "random",
-      "title": "Python Basics to Intermediate",
+      "title": "Python Basics",
       "noteBody": "Basics of python programming language"
+    },
+    {
+      "id": "3c69",
+      "category": "random",
+      "title": "My accounts",
+      "noteBody": "list of my accounts"
     }
   ]
 }

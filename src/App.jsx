@@ -48,6 +48,14 @@ function App() {
         }
     };
 
+    const deleteNote = async (id) => {
+        try {
+            await fetch(`/api/notes/${id}`, { method: "DELETE" });
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<MainLayout />}>
@@ -63,7 +71,7 @@ function App() {
                 />
                 <Route
                     path="/note/:id"
-                    element={<NotePage />}
+                    element={<NotePage deleteNote={deleteNote} />}
                     loader={noteLoader}
                 />
                 <Route

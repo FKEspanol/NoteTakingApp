@@ -1,21 +1,19 @@
 import { useParams, useLoaderData, Link, useNavigate } from "react-router-dom";
-const NotePage = () => {
+import { toast } from "react-toastify";
+const NotePage = ({ deleteNote }) => {
     const navigate = useNavigate();
     const { id } = useParams();
     const note = useLoaderData();
 
-    const deleteNote = async () => {
+    const onDeleteClick = async () => {
         const confirm = window.confirm(
             "are you sure you want to delete this listing"
         );
 
         if (!confirm) return;
-        try {
-            await fetch(`/api/notes/${id}`, { method: "DELETE" });
-            navigate("/notes");
-        } catch (error) {
-            console.log(error);
-        }
+        deleteNote(id);
+        toast.success("Note Deleted successfully");
+        navigate("/notes");
     };
 
     return (
@@ -41,7 +39,7 @@ const NotePage = () => {
                             Edit Note
                         </Link>
                         <button
-                            onClick={deleteNote}
+                            onClick={onDeleteClick}
                             className="px-3 py-3 rounded bg-danger text-white"
                         >
                             Delete Note
