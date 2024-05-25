@@ -10,7 +10,7 @@ import HomePage from "./pages/HomePage";
 import CodingNotesPage from "./pages/CodingNotesPage";
 import RandomNotesPage from "./pages/RandomNotesPage";
 import NotesPage from "./pages/NotesPage";
-import NotePage from "./pages/NotePage";
+import NotePage, { noteLoader } from "./pages/NotePage";
 import AddNotePage from "./pages/AddNotePage";
 import EditNotePage from "./pages/EditNotePage";
 import NotFoundPage from "./pages/NotFoundPage";
@@ -29,7 +29,11 @@ function App() {
                     path="/category/random-notes"
                     element={<RandomNotesPage />}
                 />
-                <Route path="/note/:id" element={<NotePage />} />
+                <Route
+                    path="/note/:id"
+                    element={<NotePage />}
+                    loader={noteLoader}
+                />
                 <Route path="/add-note" element={<AddNotePage />} />
                 <Route path="/edit-note" element={<EditNotePage />} />
                 <Route path="*" element={<NotFoundPage />} />

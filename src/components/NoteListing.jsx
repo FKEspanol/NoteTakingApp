@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const NoteListing = ({ id, category, title, noteBody }) => {
     return (
         <>
-            <article className="p-7 rounded-md shadow-md">
+            <article className="p-7 rounded-md shadow-md border bg-white">
                 <small className="text-smoke text-base mb-3">{category}</small>
                 <h5 className="play-semibold text-xl mb-5">{title}</h5>
                 <p className="text-smoke text-sm mb-7">{noteBody}</p>

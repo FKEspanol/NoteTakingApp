@@ -1,5 +1,6 @@
+import NoteListings from "../components/NoteListings";
 const NotesPage = () => {
-    return <div>NotesPage</div>;
+    return <NoteListings />;
 };
 
 export default NotesPage;
