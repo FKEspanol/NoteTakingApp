@@ -1,7 +1,23 @@
 import { useParams, useLoaderData, Link, useNavigate } from "react-router-dom";
 const NotePage = () => {
+    const navigate = useNavigate();
     const { id } = useParams();
     const note = useLoaderData();
+
+    const deleteNote = async () => {
+        const confirm = window.confirm(
+            "are you sure you want to delete this listing"
+        );
+
+        if (!confirm) return;
+        try {
+            await fetch(`/api/notes/${id}`, { method: "DELETE" });
+            navigate("/notes");
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
     return (
         <>
             <section className="py-10 bg-light">
@@ -21,7 +37,10 @@ const NotePage = () => {
                         <button className="px-3 py-3 rounded bg-warning text-white">
                             Edit Note
                         </button>
-                        <button className="px-3 py-3 rounded bg-danger text-white">
+                        <button
+                            onClick={deleteNote}
+                            className="px-3 py-3 rounded bg-danger text-white"
+                        >
                             Delete Note
                         </button>
                     </div>
