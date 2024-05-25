@@ -1,40 +1,46 @@
 {
-    "notes": [
-        {
-            "id": "1",
-            "category": "coding",
-            "title": "Linux Tips",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        },
-        {
-            "id": "2",
-            "category": "random",
-            "title": "Personality Test",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        },
-        {
-            "id": "3",
-            "category": "coding",
-            "title": "Php Basics",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        },
-        {
-            "id": "4",
-            "category": "random",
-            "title": "My accounts",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        },
-        {
-            "id": "5",
-            "category": "coding",
-            "title": "Express JS",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        },
-        {
-            "id": "6",
-            "category": "random",
-            "title": "Debian tips",
-            "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
-        }
-    ]
+  "notes": [
+    {
+      "id": "1",
+      "category": "coding",
+      "title": "Linux Tips",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "2",
+      "category": "random",
+      "title": "Personality Test",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "3",
+      "category": "coding",
+      "title": "Php Basics",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "4",
+      "category": "random",
+      "title": "My accounts",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "5",
+      "category": "coding",
+      "title": "Express JS",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "6",
+      "category": "random",
+      "title": "Debian tips",
+      "noteBody": "The quick brown fox jump over the lazy dog near the side of the river bank"
+    },
+    {
+      "id": "4770",
+      "category": "random",
+      "title": "Basics of Bash Scripting",
+      "noteBody": "This is the basics of Bash scripting in Linux environment"
+    }
+  ]
 }

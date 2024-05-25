@@ -7,7 +7,7 @@ const CategoryCard = ({ link, name, description }) => {
                 <h4 className="text-2xl mb-4 play-bold">{name}</h4>
                 <p className="mb-6">{description}</p>
                 <Link
-                    className="px-2 py-3 rounded bg-success text-white"
+                    className="px-3 py-3 rounded bg-success text-white"
                     to={`/category/${link}`}
                 >
                     View Notes

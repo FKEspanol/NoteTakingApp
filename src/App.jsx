@@ -16,6 +16,23 @@ import EditNotePage from "./pages/EditNotePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
+    const submitAddNoteForm = async (newNote) => {
+        try {
+            await fetch(`/api/notes`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+
+                body: JSON.stringify(newNote),
+            });
+        } catch (error) {
+            console.log("Something went wrong while sending request", error);
+        }
+
+        return;
+    };
+
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<MainLayout />}>
@@ -34,7 +51,12 @@ function App() {
                     element={<NotePage />}
                     loader={noteLoader}
                 />
-                <Route path="/add-note" element={<AddNotePage />} />
+                <Route
+                    path="/add-note"
+                    element={
+                        <AddNotePage submitAddNoteForm={submitAddNoteForm} />
+                    }
+                />
                 <Route path="/edit-note" element={<EditNotePage />} />
                 <Route path="*" element={<NotFoundPage />} />
             </Route>
