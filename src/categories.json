@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "link": "coding-notes",
+        "name": "Programming and Coding",
+        "description": "Notes about programming, software-development and other computing technology topics"
+    },
+
+    {
+        "id": 2,
+        "link": "random-notes",
+        "name": "Random Notes",
+        "description": "Other notes, notes about anything else"
+    }
+]
