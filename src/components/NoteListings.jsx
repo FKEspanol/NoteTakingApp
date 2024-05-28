@@ -1,25 +1,6 @@
-import { useEffect, useState } from "react";
 import NoteListing from "./NoteListing";
 import Spinner from "./Spinner";
-const NoteListings = ({ isHome = false }) => {
-    const [notes, setNotes] = useState([]);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchNotes = async () => {
-            try {
-                const res = await fetch(`/api/notes`);
-                const data = await res.json();
-                setNotes(data.reverse());
-            } catch (error) {
-                console.log("Error on fetch notes in NoteListings.jsx ", error);
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchNotes();
-    }, []);
+const NoteListings = ({ isHome = false, notes, loading }) => {
     return (
         <>
             <section className="py-10 bg-light">

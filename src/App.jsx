@@ -1,9 +1,13 @@
+import { useEffect, useState } from "react";
+
 import {
     Route,
     createBrowserRouter,
     createRoutesFromElements,
     RouterProvider,
 } from "react-router-dom";
+
+import { toast } from "react-toastify";
 
 import MainLayout from "./layout/MainLayout";
 import HomePage from "./pages/HomePage";
@@ -16,9 +20,30 @@ import EditNotePage from "./pages/EditNotePage";
 import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
+    const [notes, setNotes] = useState([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        const fetchNotes = async () => {
+            try {
+                const res = await fetch(
+                    `http://localhost:7000/notes/getAllNotes`
+                );
+                const data = await res.json();
+                setNotes(data.reverse());
+            } catch (error) {
+                console.log("Error on fetch notes in NoteListings.jsx ", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchNotes();
+    }, []);
+
     const submitAddNoteForm = async (newNote) => {
         try {
-            await fetch(`/api/notes`, {
+            const res = await fetch(`http://localhost:7000/notes/addNote`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -26,6 +51,10 @@ function App() {
 
                 body: JSON.stringify(newNote),
             });
+
+            const data = await res.json();
+            setNotes(data.notesData);
+            toast.success(data.message);
         } catch (error) {
             console.log("Something went wrong while sending request", error);
         }
@@ -35,14 +64,21 @@ function App() {
 
     const submitEditNoteForm = async (updatedNote) => {
         try {
-            await fetch(`/api/notes/${updatedNote.id}`, {
-                method: "PUT",
-                headers: {
-                    "Content-Type": "application/json",
-                },
+            const res = await fetch(
+                `http://localhost:7000/notes/updateNote/${updatedNote.id}`,
+                {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
 
-                body: JSON.stringify(updatedNote),
-            });
+                    body: JSON.stringify(updatedNote),
+                }
+            );
+
+            const data = await res.json();
+            setNotes(data.notesData);
+            toast.success(data.message);
         } catch (error) {
             console.log(error);
         }
@@ -50,7 +86,16 @@ function App() {
 
     const deleteNote = async (id) => {
         try {
-            await fetch(`/api/notes/${id}`, { method: "DELETE" });
+            const res = await fetch(
+                `http://localhost:7000/notes/deleteNote/${id}`,
+                {
+                    method: "DELETE",
+                }
+            );
+
+            const data = await res.json();
+            setNotes(data.notesData);
+            toast.success(data.message);
         } catch (error) {
             console.log(error);
         }
@@ -59,15 +104,25 @@ function App() {
     const router = createBrowserRouter(
         createRoutesFromElements(
             <Route path="/" element={<MainLayout />}>
-                <Route index element={<HomePage />} />
-                <Route path="/notes" element={<NotesPage />} />
+                <Route
+                    index
+                    element={<HomePage notes={notes} loading={loading} />}
+                />
+                <Route
+                    path="/notes"
+                    element={<NotesPage notes={notes} loading={loading} />}
+                />
                 <Route
                     path="/category/coding-notes"
-                    element={<CodingNotesPage />}
+                    element={
+                        <CodingNotesPage notes={notes} loading={loading} />
+                    }
                 />
                 <Route
                     path="/category/random-notes"
-                    element={<RandomNotesPage />}
+                    element={
+                        <RandomNotesPage notes={notes} loading={loading} />
+                    }
                 />
                 <Route
                     path="/note/:id"

@@ -1,5 +1,5 @@
 import { useParams, useLoaderData, Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+
 const NotePage = ({ deleteNote }) => {
     const navigate = useNavigate();
     const { id } = useParams();
@@ -12,7 +12,7 @@ const NotePage = ({ deleteNote }) => {
 
         if (!confirm) return;
         deleteNote(id);
-        toast.success("Note Deleted successfully");
+
         navigate("/notes");
     };
 
@@ -51,7 +51,9 @@ const NotePage = ({ deleteNote }) => {
     );
 };
 const noteLoader = async ({ params }) => {
-    const res = await fetch(`/api/notes/${params.id}`);
+    const res = await fetch(
+        `http://localhost:7000/notes/getOneNote/${params.id}`
+    );
     const data = await res.json();
     return data;
 };

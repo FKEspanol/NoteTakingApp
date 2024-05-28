@@ -1,12 +1,12 @@
 import Hero from "../components/Hero";
 import HomeCategoryCards from "../components/HomeCategoryCards";
 import NoteListings from "../components/NoteListings";
-const HomePage = () => {
+const HomePage = ({ notes, loading }) => {
     return (
         <>
             <Hero />
             <HomeCategoryCards />
-            <NoteListings isHome={true} />
+            <NoteListings isHome={true} notes={notes} loading={loading} />
         </>
     );
 };

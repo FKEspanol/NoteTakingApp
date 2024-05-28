@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, useLoaderData, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+
 const EditNotePage = ({ submitEditNoteForm }) => {
     const note = useLoaderData();
 
@@ -20,7 +20,7 @@ const EditNotePage = ({ submitEditNoteForm }) => {
         };
 
         submitEditNoteForm(updatedNote);
-        toast.success("Successfully updated a note");
+
         navigate("/notes");
     };
 
