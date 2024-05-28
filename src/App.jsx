@@ -30,7 +30,7 @@ function App() {
                     `http://localhost:7000/notes/getAllNotes`
                 );
                 const data = await res.json();
-                setNotes(data.reverse());
+                setNotes(data.notesData.reverse());
             } catch (error) {
                 console.log("Error on fetch notes in NoteListings.jsx ", error);
             } finally {
@@ -53,7 +53,7 @@ function App() {
             });
 
             const data = await res.json();
-            setNotes(data.notesData);
+            setNotes(data.notesData.reverse());
             toast.success(data.message);
         } catch (error) {
             console.log("Something went wrong while sending request", error);
@@ -77,7 +77,7 @@ function App() {
             );
 
             const data = await res.json();
-            setNotes(data.notesData);
+            setNotes(data.notesData.reverse());
             toast.success(data.message);
         } catch (error) {
             console.log(error);
@@ -94,7 +94,7 @@ function App() {
             );
 
             const data = await res.json();
-            setNotes(data.notesData);
+            setNotes(data.notesData.reverse());
             toast.success(data.message);
         } catch (error) {
             console.log(error);
